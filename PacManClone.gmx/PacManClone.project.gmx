@@ -16,28 +16,29 @@
       <sprite>sprites\facingRight</sprite>
       <sprite>sprites\facingLeft</sprite>
     </sprites>
-    <sprite>sprites\rockIntersectionSprite</sprite>
-    <sprite>sprites\rockEdgeSprite</sprite>
-    <sprite>sprites\rockCornerSprite</sprite>
-    <sprite>sprites\rockEndSprite</sprite>
-    <sprite>sprites\rockCenterSprite</sprite>
-    <sprite>sprites\rockLoneSprite</sprite>
-    <sprite>sprites\rockTwoEdgesSprite</sprite>
+    <sprites name="wallSprites">
+      <sprite>sprites\wallSprite</sprite>
+      <sprite>sprites\wallCrackSprite</sprite>
+      <sprite>sprites\wallMossSprite</sprite>
+      <sprite>sprites\wallCrackMossSprite</sprite>
+      <sprite>sprites\wallTopSprite</sprite>
+    </sprites>
+    <sprite>sprites\superCoinSprite</sprite>
+    <sprite>sprites\superCoinSpriteShadow</sprite>
+    <sprite>sprites\coinSprite</sprite>
+    <sprite>sprites\coinSpriteShadow</sprite>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\background0</background>
+  </backgrounds>
   <paths name="paths"/>
   <objects name="objects">
     <object>objects\player</object>
     <object>objects\supervisor</object>
-    <objects name="rocks">
-      <object>objects\rockLone</object>
-      <object>objects\rockEnd</object>
-      <object>objects\rockCorner</object>
-      <object>objects\rockEdge</object>
-      <object>objects\rockTwoEdges</object>
-      <object>objects\rockCenter</object>
-      <object>objects\rockIntersection</object>
-    </objects>
+    <object>objects\wall</object>
+    <object>objects\wallTop</object>
+    <object>objects\superCoin</object>
+    <object>objects\coin</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>
