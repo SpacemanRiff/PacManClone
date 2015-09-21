@@ -38,6 +38,8 @@ moveSpeed = 5
 dying = false
 
 onMat = false
+
+/* this is a comment */
 </string>
           </argument>
         </arguments>
