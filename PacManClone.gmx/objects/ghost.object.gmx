@@ -49,7 +49,7 @@ speed = 2
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(player.superTimer &lt;= 0){
+            <string>if(player.superTimer &lt;= 0 &amp;&amp; !player.dying){
     mp_potential_step_object(player.x,player.y,speed,wall)
 }else{
     mp_potential_step_object(-player.x,-player.y,speed/2,wall)
@@ -128,8 +128,8 @@ speed = 2
 }else{
     sprite_index = scaredGhostSprite
 }
-draw_sprite(ghostShadowSprite, image_index, x, y)
-draw_sprite(sprite_index, image_index, x, y-32)
+draw_sprite(ghostShadowSprite, image_index, x, y+8)
+draw_sprite(sprite_index, image_index, x, y)
 </string>
           </argument>
         </arguments>

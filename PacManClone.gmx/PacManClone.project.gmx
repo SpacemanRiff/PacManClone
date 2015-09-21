@@ -19,6 +19,8 @@
       <sprite>sprites\facingTowards</sprite>
       <sprite>sprites\facingRight</sprite>
       <sprite>sprites\facingLeft</sprite>
+      <sprite>sprites\playerDeathAnimation</sprite>
+      <sprite>sprites\playerShadowSprite</sprite>
     </sprites>
     <sprites name="wallSprites">
       <sprite>sprites\wallSprite</sprite>
@@ -26,6 +28,7 @@
       <sprite>sprites\wallMossSprite</sprite>
       <sprite>sprites\wallCrackMossSprite</sprite>
       <sprite>sprites\wallTopSprite</sprite>
+      <sprite>sprites\doorSprite</sprite>
     </sprites>
     <sprites name="coinSprites">
       <sprite>sprites\superCoinSprite</sprite>
@@ -38,19 +41,24 @@
       <sprite>sprites\angryGhostSprite</sprite>
       <sprite>sprites\ghostShadowSprite</sprite>
     </sprites>
+    <sprite>sprites\spawnerSprite</sprite>
+    <sprite>sprites\welcomeMatSprite</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
   </backgrounds>
   <paths name="paths"/>
   <objects name="objects">
-    <object>objects\player</object>
     <object>objects\supervisor</object>
+    <object>objects\player</object>
     <object>objects\wall</object>
     <object>objects\wallTop</object>
     <object>objects\superCoin</object>
     <object>objects\coin</object>
     <object>objects\ghost</object>
+    <object>objects\spawner</object>
+    <object>objects\door</object>
+    <object>objects\welcomeMat</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>

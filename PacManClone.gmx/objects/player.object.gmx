@@ -3,7 +3,7 @@
   <spriteName>facingRight</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>5</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -29,11 +29,15 @@
 moveRight = false
 moveUp = false
 moveLeft = false
-image_speed = 0.5
+defaultImageSpeed = 0.5
 lastDirectionMoved = "right"
 
 superTimer = 0
 moveSpeed = 5
+
+dying = false
+
+onMat = false
 </string>
           </argument>
         </arguments>
@@ -87,6 +91,86 @@ if(superTimer &gt; 0){
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(place_meeting(x,y+15,welcomeMat)){
+    onMat = true
+}else{
+    onMat = false
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="door">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(onMat){
+    x = other.teleportX
+    y = other.teleportY
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="ghost">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(superTimer &lt;= 0){
+    dying = true
+    moveUp = false
+    moveDown = false
+    moveLeft = false
+    moveRight = false
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="4" ename="wall">
       <action>
@@ -106,6 +190,33 @@ if(superTimer &gt; 0){
           <argument>
             <kind>1</kind>
             <string></string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="7">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(sprite_index == playerDeathAnimation){
+    show_message("git gud")
+    room_restart()
+    dying = false
+}
+</string>
           </argument>
         </arguments>
       </action>
@@ -140,7 +251,7 @@ if(moveRight){
     sprite_index = walkAnimationRight
 }
 
-if(!moveLeft &amp;&amp; !moveRight &amp;&amp; !moveUp &amp;&amp; !moveDown){
+if(!moveLeft &amp;&amp; !moveRight &amp;&amp; !moveUp &amp;&amp; !moveDown &amp;&amp; !dying){
     switch(lastDirectionMoved){
         case "up":
             sprite_index = facingAway; break;
@@ -153,6 +264,14 @@ if(!moveLeft &amp;&amp; !moveRight &amp;&amp; !moveUp &amp;&amp; !moveDown){
     }
 }
 
+if(dying){
+    image_speed = 0.25
+    sprite_index = playerDeathAnimation
+}else{    
+    image_speed = defaultImageSpeed
+}
+
+draw_sprite(playerShadowSprite, image_index, x, y+14)
 draw_sprite(sprite_index, image_index, x, y)
 </string>
           </argument>
