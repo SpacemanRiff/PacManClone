@@ -4,7 +4,11 @@
     <Config>Configs\Default</Config>
   </Configs>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sound>sound\powerUpSound</sound>
+    <sound>sound\coinGetSound</sound>
+    <sound>sound\deathSound</sound>
+  </sounds>
   <sprites name="sprites">
     <sprites name="playerSprites">
       <sprite>sprites\walkAnimationDown</sprite>
@@ -23,10 +27,17 @@
       <sprite>sprites\wallCrackMossSprite</sprite>
       <sprite>sprites\wallTopSprite</sprite>
     </sprites>
-    <sprite>sprites\superCoinSprite</sprite>
-    <sprite>sprites\superCoinSpriteShadow</sprite>
-    <sprite>sprites\coinSprite</sprite>
-    <sprite>sprites\coinSpriteShadow</sprite>
+    <sprites name="coinSprites">
+      <sprite>sprites\superCoinSprite</sprite>
+      <sprite>sprites\superCoinSpriteShadow</sprite>
+      <sprite>sprites\coinSprite</sprite>
+      <sprite>sprites\coinSpriteShadow</sprite>
+    </sprites>
+    <sprites name="ghostSprites">
+      <sprite>sprites\scaredGhostSprite</sprite>
+      <sprite>sprites\angryGhostSprite</sprite>
+      <sprite>sprites\ghostShadowSprite</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -39,6 +50,7 @@
     <object>objects\wallTop</object>
     <object>objects\superCoin</object>
     <object>objects\coin</object>
+    <object>objects\ghost</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>

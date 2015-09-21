@@ -25,7 +25,13 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>instance_destroy()
+            <string>other.superTimer = 160
+if audio_is_playing(powerUpSound) {
+    audio_stop_sound(powerUpSound)
+}
+audio_play_sound(powerUpSound,1,false)
+
+instance_destroy()
 </string>
           </argument>
         </arguments>
