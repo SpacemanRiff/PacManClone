@@ -162,8 +162,9 @@ if(superTimer &gt; 0){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(superTimer &lt;= 0){
+            <string>if(superTimer &lt;= 0 &amp;&amp; !dying){
     dying = true
+    audio_play_sound(deathSound,1,false)
     moveUp = false
     moveDown = false
     moveLeft = false
