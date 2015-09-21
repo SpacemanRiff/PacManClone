@@ -26,7 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>image_speed = 0.25
-speed = 2
+moveSpeed = 4
+dying = false
 </string>
           </argument>
         </arguments>
@@ -49,10 +50,25 @@ speed = 2
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(player.superTimer &lt;= 0 &amp;&amp; !player.dying){
-    mp_potential_step_object(player.x,player.y,speed,wall)
-}else{
-    mp_potential_step_object(-player.x,-player.y,speed/2,wall)
+            <string>if(!dying){
+    grid = mp_grid_create(0, 0, room_width div 32, room_height div 32, 32, 32);
+    mp_grid_add_instances(grid, wall, true);
+    if(player.superTimer &lt;= 0 &amp;&amp; !player.dying){
+        path = path_add();
+        if mp_grid_path(grid, path, x, y, player.x, player.y, 0){
+            path_start(path, moveSpeed, 3, 0);
+        }
+    }else{
+        path = path_add();
+        if mp_grid_path(grid, path, x, y, -player.x, -player.y, 0){
+            path_start(path, moveSpeed, 3, 0);
+        }
+    }
+    /*if(player.superTimer &lt;= 0 &amp;&amp; !player.dying){
+        mp_potential_step_object(player.x,player.y,moveSpeed,wall)
+    }else{
+        mp_potential_step_object(-player.x,-player.y,moveSpeed/2,wall)
+    }*/
 }
 </string>
           </argument>
@@ -98,7 +114,34 @@ speed = 2
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(player.superTimer &gt; 0){
+            <string>if(player.superTimer &gt; 0 &amp;&amp; !dying){
+    dying = true
+    audio_play_sound(ghostDeathSound,1,false)
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="7">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(sprite_index == ghostDeathAnimation){
+    dying = false
     instance_destroy()
 }
 </string>
@@ -123,11 +166,16 @@ speed = 2
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(player.superTimer &lt;= 0){
-    sprite_index = angryGhostSprite
+            <string>if(!dying){
+    if(player.superTimer &lt;= 0){
+        sprite_index = angryGhostSprite
+    }else{
+        sprite_index = scaredGhostSprite
+    }
 }else{
-    sprite_index = scaredGhostSprite
+    sprite_index = ghostDeathAnimation
 }
+
 draw_sprite(ghostShadowSprite, image_index, x, y+8)
 draw_sprite(sprite_index, image_index, x, y)
 </string>

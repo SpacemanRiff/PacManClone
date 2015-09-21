@@ -8,6 +8,9 @@
     <sound>sound\powerUpSound</sound>
     <sound>sound\coinGetSound</sound>
     <sound>sound\deathSound</sound>
+    <sound>sound\ghostDeathSound</sound>
+    <sound>sound\stepSound1</sound>
+    <sound>sound\stepSound2</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="playerSprites">
@@ -40,6 +43,7 @@
       <sprite>sprites\scaredGhostSprite</sprite>
       <sprite>sprites\angryGhostSprite</sprite>
       <sprite>sprites\ghostShadowSprite</sprite>
+      <sprite>sprites\ghostDeathAnimation</sprite>
     </sprites>
     <sprite>sprites\spawnerSprite</sprite>
     <sprite>sprites\welcomeMatSprite</sprite>

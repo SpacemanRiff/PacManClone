@@ -253,6 +253,14 @@ if(moveLeft){
 if(moveRight){
     sprite_index = walkAnimationRight
 }
+if(moveRight || moveLeft || moveUp || moveDown){
+    if(image_index == 0){
+        audio_play_sound(stepSound1,1,false)    
+    }
+    if(image_index == 4){
+        audio_play_sound(stepSound2,1,false)    
+    }
+}
 
 if(!moveLeft &amp;&amp; !moveRight &amp;&amp; !moveUp &amp;&amp; !moveDown &amp;&amp; !dying){
     switch(lastDirectionMoved){

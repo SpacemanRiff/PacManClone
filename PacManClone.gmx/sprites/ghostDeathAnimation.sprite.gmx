@@ -20,9 +20,13 @@
   <width>64</width>
   <height>64</height>
   <frames>
-    <frame index="0">images\angryGhostSprite_0.png</frame>
-    <frame index="1">images\angryGhostSprite_1.png</frame>
-    <frame index="2">images\angryGhostSprite_2.png</frame>
-    <frame index="3">images\angryGhostSprite_3.png</frame>
+    <frame index="0">images\ghostDeathAnimation_0.png</frame>
+    <frame index="1">images\ghostDeathAnimation_1.png</frame>
+    <frame index="2">images\ghostDeathAnimation_2.png</frame>
+    <frame index="3">images\ghostDeathAnimation_3.png</frame>
+    <frame index="4">images\ghostDeathAnimation_4.png</frame>
+    <frame index="5">images\ghostDeathAnimation_5.png</frame>
+    <frame index="6">images\ghostDeathAnimation_6.png</frame>
+    <frame index="7">images\ghostDeathAnimation_7.png</frame>
   </frames>
 </sprite>
