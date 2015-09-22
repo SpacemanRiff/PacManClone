@@ -11,6 +11,9 @@
     <sound>sound\ghostDeathSound</sound>
     <sound>sound\stepSound1</sound>
     <sound>sound\stepSound2</sound>
+    <sound>sound\ghostSpawnSound</sound>
+    <sound>sound\levelCompleteSound</sound>
+    <sound>sound\gameCompleteSound</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="playerSprites">
@@ -66,6 +69,7 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\room0</room>
+    <room>rooms\room2</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

@@ -142,10 +142,14 @@ spawnDelay--
           <argument>
             <kind>1</kind>
             <string>if(!instance_exists(coin) &amp;&amp; !instance_exists(superCoin)) {
-    if room != room_last {
-        room_goto_next()
+    if(audio_is_playing(powerUpSound)){
+        audio_stop_sound(powerUpSound)
     }
-    else {
+    if (room != room_last){
+        audio_play_sound(levelCompleteSound,1,false)
+        room_goto_next()
+    }else{
+        audio_play_sound(gameCompleteSound,1,false)
         show_message("u got gud")
         game_end()
     }

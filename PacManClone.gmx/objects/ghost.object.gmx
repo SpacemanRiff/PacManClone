@@ -28,6 +28,7 @@
             <string>image_speed = 0.25
 moveSpeed = 4
 dying = false
+audio_play_sound(ghostSpawnSound,1,false)
 </string>
           </argument>
         </arguments>
@@ -51,7 +52,7 @@ dying = false
           <argument>
             <kind>1</kind>
             <string>if(!dying){
-    grid = mp_grid_create(0, 0, room_width div 32, room_height div 32, 32, 32);
+    /*grid = mp_grid_create(0, 0, room_width div 32, room_height div 32, 32, 32);
     mp_grid_add_instances(grid, wall, true);
     if(player.superTimer &lt;= 0 &amp;&amp; !player.dying){
         path = path_add();
@@ -63,12 +64,12 @@ dying = false
         if mp_grid_path(grid, path, x, y, -player.x, -player.y, 0){
             path_start(path, moveSpeed, 3, 0);
         }
-    }
-    /*if(player.superTimer &lt;= 0 &amp;&amp; !player.dying){
+    }*/
+    if(player.superTimer &lt;= 0 &amp;&amp; !player.dying){
         mp_potential_step_object(player.x,player.y,moveSpeed,wall)
     }else{
         mp_potential_step_object(-player.x,-player.y,moveSpeed/2,wall)
-    }*/
+    }
 }
 </string>
           </argument>
@@ -166,7 +167,13 @@ dying = false
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(!dying){
+            <string>if(player.y &lt; y){
+    depth = 0
+}else{
+    depth = 10
+}
+
+if(!dying){
     if(player.superTimer &lt;= 0){
         sprite_index = angryGhostSprite
     }else{
@@ -176,7 +183,7 @@ dying = false
     sprite_index = ghostDeathAnimation
 }
 
-draw_sprite(ghostShadowSprite, image_index, x, y+8)
+draw_sprite(ghostShadowSprite, image_index, x, y+24)
 draw_sprite(sprite_index, image_index, x, y)
 </string>
           </argument>
