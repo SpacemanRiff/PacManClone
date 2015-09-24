@@ -179,7 +179,7 @@ spawnDelay--
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>surface_set_target(surf)
+            <string>/*surface_set_target(surf)
 
 draw_clear(c_black)
 
@@ -190,7 +190,7 @@ with(light){
 }
 
 surface_reset_target()
-draw_surface_ext(surf, 0, 0, 1/surfScale, 1/surfScale, 0, c_white, 0.9)
+draw_surface_ext(surf, 0, 0, 1/surfScale, 1/surfScale, 0, c_white, 0.9)*/
 </string>
           </argument>
         </arguments>
