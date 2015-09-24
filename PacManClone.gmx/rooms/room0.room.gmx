@@ -10,8 +10,7 @@
   <persistent>0</persistent>
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
-  <code>global.grid = mp_grid_create(0, 0, room_width div 64, room_height div 64, 64, 64);
-mp_grid_add_instances(global.grid, wall, true);</code>
+  <code>generateGrid()</code>
   <enableViews>-1</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
