@@ -186,7 +186,7 @@ playerLight.y = y
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(superTimer &lt;= 0 &amp;&amp; !dying &amp;&amp; !other.dying){
+            <string>if(superTimer &lt;= 0 &amp;&amp; !dying &amp;&amp; !other.dying&amp;&amp; !other.spawning){
     dying = true
     audio_play_sound(deathSound,1,false)
     moveUp = false

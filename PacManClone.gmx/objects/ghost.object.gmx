@@ -28,6 +28,7 @@
             <string>image_speed = 0.25
 moveSpeed = 4
 dying = false
+spawning = true
 audio_play_sound(ghostSpawnSound,1,false)
 //path = path_add()
 </string>
@@ -52,7 +53,7 @@ audio_play_sound(ghostSpawnSound,1,false)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(!dying){
+            <string>if(!dying &amp;&amp; !spawning){
     /*path_delete(path)
     path = path_add()
     if(player.superTimer &lt;= 0 &amp;&amp; !player.dying){
@@ -145,6 +146,9 @@ audio_play_sound(ghostSpawnSound,1,false)
     dying = false
     instance_destroy()
 }
+if(sprite_index == ghostSpawnAnimation){
+    spawning = false
+}
 </string>
           </argument>
         </arguments>
@@ -173,14 +177,16 @@ audio_play_sound(ghostSpawnSound,1,false)
     depth = 10
 }
 
-if(!dying){
+if(!dying &amp;&amp; !spawning){
     if(player.superTimer &lt;= 0){
         sprite_index = angryGhostSprite
     }else{
         sprite_index = scaredGhostSprite
     }
-}else{
+}else if(!spawning){
     sprite_index = ghostDeathAnimation
+}else{
+    sprite_index = ghostSpawnAnimation
 }
 
 draw_sprite(ghostShadowSprite, image_index, x, y+24)

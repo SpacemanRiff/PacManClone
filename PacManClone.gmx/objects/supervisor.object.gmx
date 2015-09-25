@@ -37,6 +37,8 @@ currentSpawner = 0
 
 surf = surface_create(room_width, room_height)
 surfScale = 1/8
+
+lightingOn = 1
 </string>
           </argument>
         </arguments>
@@ -76,6 +78,10 @@ if(!player.dying){
     if(keyboard_check_pressed(vk_right)){
         player.moveRight = true
         player.moveLeft = false
+    }
+    
+    if(keyboard_check_pressed(ord('L'))){
+        lightingOn += 1
     }
     
     if(keyboard_check_released(vk_up)){
@@ -179,18 +185,20 @@ spawnDelay--
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>surface_set_target(surf)
-
-draw_clear(c_black)
-
-with(light){
-    draw_set_blend_mode(bm_src_color)
-    draw_sprite_ext(lightSprite, 0, x*other.surfScale, y*other.surfScale, lightSize*other.surfScale, lightSize*other.surfScale, 0, c_white, lightStrength)
-    draw_set_blend_mode(bm_normal)
+            <string>if(lightingOn%2 == 1){
+    surface_set_target(surf)
+    
+    draw_clear(c_black)
+    
+    with(light){
+        draw_set_blend_mode(bm_src_color)
+        draw_sprite_ext(lightSprite, 0, x*other.surfScale, y*other.surfScale, lightSize*other.surfScale, lightSize*other.surfScale, 0, c_white, lightStrength)
+        draw_set_blend_mode(bm_normal)
+    }
+    
+    surface_reset_target()
+    draw_surface_ext(surf, 0, 0, 1/surfScale, 1/surfScale, 0, c_white, 0.75)
 }
-
-surface_reset_target()
-draw_surface_ext(surf, 0, 0, 1/surfScale, 1/surfScale, 0, c_white, 0.6)
 </string>
           </argument>
         </arguments>

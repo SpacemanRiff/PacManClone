@@ -47,6 +47,7 @@
       <sprite>sprites\angryGhostSprite</sprite>
       <sprite>sprites\ghostShadowSprite</sprite>
       <sprite>sprites\ghostDeathAnimation</sprite>
+      <sprite>sprites\ghostSpawnAnimation</sprite>
     </sprites>
     <sprite>sprites\spawnerSprite</sprite>
     <sprite>sprites\welcomeMatSprite</sprite>
